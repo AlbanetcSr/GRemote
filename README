@@ -1,0 +1,15 @@
+GRemote is a mini host for Arduino GCode Interpreters supporting line-based (g-code/"ok") protocol
+
+It's built using Processing, controlP5 and Java RXTX
+
+It can do the following:
+
+- send g-code files to firmware over serial/USB
+- issue g-code commands via text input
+- issue various g-code commands from jog buttons, supporting:
+  - multiaxis jogs
+  - variable feedrate
+  - arc movements
+  - homing
+  - zero/memory set/goto
+
