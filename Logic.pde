@@ -90,7 +90,9 @@ class GCodeCommand
 //
 
 // file sending handler
-void send_file(String f) {
+//void send_file(String f) {
+void send_file(File f) {
+  if (f == null) return;
   gcode_sequence = loadStrings(f);
   if (gcode_sequence == null) {
     println(": unable to open the file"); console_println(": unable to open the file");

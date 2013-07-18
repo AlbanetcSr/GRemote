@@ -5,6 +5,7 @@
 import controlP5.*;
 import processing.serial.*;
 import java.util.StringTokenizer;
+import java.awt.event.KeyEvent;
 
 // Global variables
 ControlP5 cP5;
@@ -211,9 +212,10 @@ void controlEvent(ControlEvent theEvent) {
 
     // send file button
     if(theEvent.controller().name() == "SEND FILE") {
-      String file = selectInput("Select GCode file to send");
-      if (file == null) return;
-      send_file(file);
+        selectInput("Select GCode file to send","send_file");
+//      String file = selectInput("Select GCode file to send");
+//      if (file == null) return;
+//      send_file(file);
     }
         
     // cancel (sending file) button
@@ -549,7 +551,7 @@ void serialEvent(Serial port)
   // process response
   // start/ok line-based protocol is supported by most reprap firmware
   
-  // first start or firmware reset
+  // firmware reset (not all firmware does this though)
   if (s.equals("START")) {
     println("firmware start, sending init sequence");
     SendingSequence = false; Paused = false;
